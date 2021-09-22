@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tic Tac Toe</title>
+        <link rel="icon" href="icon.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body class="main">
+        <div class="container">
+            <center>
+                <marquee direction="right" width="50%"><h1>Tic Tac Toe</h1></marquee>
+                <div class="settings_form">
+                    <h3>Name of Player 1</h3>
+                    <h5>Player 1 plays as <var style="color: red;">X</var></h5>
+                    <label class="text-capitalize">user name:</label>
+                    <input class="form-control" id="name_of_X" placeholder="Enter username here">
+                    <br>
+                </div>
+                <br>
+                <div class="settings_form">
+                    <h3>Name of Player 2</h3>
+                    <h5>Player 2 plays as <var style="color: blue;">O</var></h5>
+                    <label class="text-capitalize">user name:</label>
+                    <input class="form-control" id="name_of_O" placeholder="Enter username here">
+                    <br>
+                </div>
+                <br>
+                <div class="settings_form">
+                    <h3>Who will play first?</h3>
+                    <select class="form-control" id="play_first" style="cursor: pointer; color: red;" onchange="change_effect()">
+                        <option value="0" style="color: red;">X</option>
+                        <option value="1" style="color: blue;">O</option>
+                    </select>
+                    <br>
+                </div>
+                <br>
+                <button id="login_button" onclick="save_name()">Continue to game page</button>
+            </center>
+        </div>
+        <script>
+            if (localStorage.getItem("Tic Tac Toe Player 1")) {
+                document.getElementById("name_of_X").value = localStorage.getItem("Tic Tac Toe Player 1");
+                document.getElementById("name_of_O").value = localStorage.getItem("Tic Tac Toe Player 2");
+            }
+
+            function save_name() {
+              var o_name = document.getElementById("name_of_O").value;
+              var x_name = document.getElementById("name_of_X").value;
+              var player_first = document.getElementById("play_first").value;
+              localStorage.setItem("Tic Tac Toe Player 1", x_name);
+              localStorage.setItem("Tic Tac Toe Player 2", o_name);
+              sessionStorage.setItem("First player", player_first);
+              window.location.replace("game.html");
+            }  
+            
+            function change_effect() {
+                var reference = document.getElementById("play_first");
+                if(reference.value == "0") {
+                    reference.style.color = "red";
+                }
+                if(reference.value == "1") {
+                    reference.style.color = "blue";
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tic Tac Toe</title>
+        <link rel="icon" href="icon.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body onload="load_content()">
+        <audio src="tie_jdpbwa.wav" id="tie"></audio>
+        <audio src="win_o6ui4r.wav" id="win"></audio>
+        <div class="container">
+            <center>
+                <marquee direction="right" width="50%"><h1>Tic Tac Toe</h1></marquee>
+                <h3>
+                    Players: <br>
+                    Player 1: <var id="first_player"></var> <br>
+                    Player 2: <var id="second_player"></var> <br><br>
+                    <var id="who_will_play_first"></var> will play first
+                </h3>
+                <h2 id="winner"></h2>
+                <br><br>
+                <table>
+                    <tr>
+                        <td class="top left" id="px1" onclick="fill_box(0)"></td>
+                        <td class="top" id="px2" onclick="fill_box(1)"></td>
+                        <td class="top right" id="px3" onclick="fill_box(2)"></td>
+                    </tr>
+                    <tr>
+                        <td class="left" id="px4" onclick="fill_box(3)"></td>
+                        <td id="px5" onclick="fill_box(4)"></td>
+                        <td class="right" id="px6" onclick="fill_box(5)"></td>
+                    </tr>
+                    <tr>
+                        <td class="bottom left" id="px7" onclick="fill_box(6)"></td>
+                        <td class="bottom" id="px8" onclick="fill_box(7)"></td>
+                        <td class="bottom right" id="px9" onclick="fill_box(8)"></td>
+                    </tr>
+                </table>
+                <br>
+                <button onclick="reset_game()" id="reset">Reset</button>
+                <br><br>
+            </center>
+        </div>
+    </body>
+</html>
